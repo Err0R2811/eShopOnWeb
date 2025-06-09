@@ -1,9 +1,14 @@
 name: eShopOnWeb Build and Test
 
-# Triggers (uncomment line below to use it)
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
-# Environment variables https://docs.github.com/en/actions/learn-github-actions/environment-variables
 env:
   RESOURCE-GROUP: rg-eshoponweb-eastus
   LOCATION: Central India
@@ -59,4 +64,5 @@ jobs:
     needs: buildandtest
     environment:
       name: 'Development'
-    steps
+    steps:
+    # Add your deployment steps here
